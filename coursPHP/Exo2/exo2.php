@@ -16,5 +16,9 @@
         <p> Salut </p>
     </div>
     <img src="sources/images/player.png" alt="image du personnage">
+
+    <input class="updatecolor" type="button" type="button" value="Changer la couleur">
+    
+    <script src="main.js"></script>
 </body>
 </html>
