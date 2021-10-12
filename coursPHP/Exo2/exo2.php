@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,5 +10,11 @@
 <body>
     <h1 class="titreBleu"> Coucou </h1>
     <h1 class="titreRouge"> Salut </h1>
+    <div class="backgroundColorRed">Un texte dans un paragraphe</div>
+    <div class="backgroundColorBlue"> 
+        <p> Bonjour </p>
+        <p> Salut </p>
+    </div>
+    <img src="sources/images/player.png" alt="image du personnage">
 </body>
 </html>
