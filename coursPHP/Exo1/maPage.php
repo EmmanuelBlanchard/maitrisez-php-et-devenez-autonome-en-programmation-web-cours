@@ -1,25 +1,38 @@
 <?php
-
 $nomJoueur1 = "Matthieu";
 $ageJoueur1 = 30;
-$estUnHommeJoueur1 = false;
+$estUnHommeJoueur1 = true;
+
+$nomJoueur2 = "tata";
+$ageJoueur2 = 25;
+$estUnHommeJoueur2 = false;
+
+$text = test(3);
+echo $text;
+
+afficherJoueur($nomJoueur1,$ageJoueur1,$estUnHommeJoueur1);
+afficherJoueur($nomJoueur2,$ageJoueur2,$estUnHommeJoueur2);
+
+function afficherJoueur($nom, $age, $homme) {
+    echo "Nom du joueur 1 : " . $nom;
+    echo "<br />";
+    echo "Age du joueur 1 : " . $age;
+    $age = $age + 1;
+    echo "<br />";
+    echo "Age du joueur 1 : " . $age;
+    echo "<br />";
+
+    if($homme === true) {
+        echo "C'est un homme";
+    } else { //$estUnHomme === false
+        echo "C'est une femme";
+    }
+}
+
+function test($c) {
+    $a = 5;
+    $b = 10;
+    return $a + $b + $c;
+}
 
 ?>
-<h1> Nom du joueur 1 : <?php echo $nomJoueur1; ?> </h1>
-<br />
-
-Age du joueur 1 : <?php echo $ageJoueur1; ?>
-<br />
-
-<?php $ageJoueur1 = $ageJoueur1 + 1; ?>
-
-Age du joueur 1 : <?php echo $ageJoueur1; ?>
-<br />
-
-<?php 
-if($estUnHommeJoueur1 === true) {
-?>
-    C'est un homme
-<?php } else { //$estUnHomme === false ?>
-    C'est une femme
-<?php } ?>
