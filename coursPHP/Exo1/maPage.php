@@ -56,9 +56,14 @@ function calculDifferenceAge($age1, $age2) {
 
 function generationSeparation($separateur) {
     echo "<br />";
-    for($i = 0; $i < 50; $i++) {
+    // for($i = 0; $i < 50; $i++) {
+    //     echo $separateur;
+    // }
+    $i = 0;
+    do {
+        $i++;
         echo $separateur;
-    }
+    } while($i < 50);
     echo "<br />";
 }
 
