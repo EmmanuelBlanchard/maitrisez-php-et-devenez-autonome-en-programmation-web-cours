@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1 class="titreBleu"> Formulaire </h1>
-    <form action="#">
+    <form action="#" method="post">
         <fieldset>
             <legend>Informations</legend>
             <label for="nom">Nom : </label>
@@ -19,5 +19,23 @@
             <input type="submit" value="Envoyer">
         </fieldset>
     </form>
+    <?php 
+        // if(isset($_GET["nom"])) {
+        //     echo "<div class=\"resultat\">";
+        //     echo "Le nom est : " . $_GET["nom"] . "<br />";
+        //     if(isset($_GET["age"])) {
+        //         echo "L'age est : " . $_GET["age"] . "<br />";
+        //     }
+        //     echo "<div>";
+        // }
+        if(isset($_POST["nom"])) {
+            echo "<div class=\"resultat\">";
+            echo "Le nom est : " . $_POST["nom"] . "<br />";
+            if(isset($_POST["age"])) {
+                echo "L'age est : " . $_POST["age"] . "<br />";
+            }
+            echo "<div>";
+        }
+    ?>
 </body>
 </html>
