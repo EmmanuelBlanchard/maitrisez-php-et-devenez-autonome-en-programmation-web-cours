@@ -7,14 +7,16 @@ $nomJoueur2 = "tata";
 $ageJoueur2 = 25;
 $estUnHommeJoueur2 = false;
 
-generationSeparation();
+generationSeparation("-");
 afficherJoueur($nomJoueur1,$ageJoueur1,$estUnHommeJoueur1);
-generationSeparation();
+generationSeparation("+");
 afficherJoueur($nomJoueur2,$ageJoueur2,$estUnHommeJoueur2);
+generationSeparation("/");
 
-generationSeparation();
 afficherJoueurLePlusAge($ageJoueur1, $ageJoueur2);
-generationSeparation();
+generationSeparation("-");
+$differenceAge = calculDifferenceAge($ageJoueur1, $ageJoueur2);
+echo "La différence d'age est de : " . $differenceAge;
 
 function afficherJoueur($nom, $age, $homme) {
     echo "Nom du joueur : " . $nom;
@@ -37,9 +39,19 @@ function afficherJoueurLePlusAge($ageJoueur1, $ageJoueur2) {
     }
 }
 
-function generationSeparation() {
+function calculDifferenceAge($age1, $age2) {
+    $resultat = $age1 - $age2;
+    if($resultat < 0) {
+        $resultat = -$resultat;
+    }
+    return $resultat;
+}
+
+function generationSeparation($separateur) {
     echo "<br />";
-    echo "----------------------";
+    for($i = 0; $i < 50; $i++) {
+        echo $separateur;
+    }
     echo "<br />";
 }
 
