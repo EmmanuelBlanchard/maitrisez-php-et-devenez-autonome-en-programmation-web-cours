@@ -9,5 +9,6 @@
         <li><a href="exo6.php">Exercice 6</a></li>
         <li><a href="exo7.php">Exercice 7</a></li>
         <li><a href="exo8.php">Exercice 8</a></li>
+        <li><a href="exo9.php">Exercice 9</a></li>
     </ul>
 </nav>
