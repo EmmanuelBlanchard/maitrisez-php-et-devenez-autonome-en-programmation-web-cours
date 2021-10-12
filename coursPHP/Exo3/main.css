@@ -50,3 +50,10 @@ li a:hover {
 h1 {
     color : #1490D7;
 }
+
+.gauche{
+    float:left;
+}
+.clearBoth{
+    clear:both;
+}
