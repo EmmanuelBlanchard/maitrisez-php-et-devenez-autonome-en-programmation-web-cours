@@ -1,28 +1,36 @@
 <?php
 define("SEPARATEUR", "-");
 
-$nomJoueur1 = "Matthieu";
-$ageJoueur1 = 20;
-$estUnHommeJoueur1 = true;
+$joueur1 = ["Matthieu", 20, true];
 
-$nomJoueur2 = "tata";
-$ageJoueur2 = 18;
-$estUnHommeJoueur2 = false;
+$joueur2 = ["tata", 18, false];
+
+print_r($joueur1);
+
+// $nomJoueur1 = "Matthieu";
+// $ageJoueur1 = 20;
+// $estUnHommeJoueur1 = true;
+
+// $nomJoueur2 = "tata";
+// $ageJoueur2 = 18;
+// $estUnHommeJoueur2 = false;
 
 generationSeparation(SEPARATEUR);
-afficherJoueur($nomJoueur1,$ageJoueur1,$estUnHommeJoueur1);
+// afficherJoueur($joueur1[0],$joueur1[1],$joueur1[2]);
+afficherJoueurV2($joueur1);
 generationSeparation(SEPARATEUR);
-afficherJoueur($nomJoueur2,$ageJoueur2,$estUnHommeJoueur2);
+// afficherJoueur($joueur2[0],$joueur2[1],$joueur2[2]);
+afficherJoueurV2($joueur2);
 generationSeparation(SEPARATEUR);
 
-afficherJoueurLePlusAge($ageJoueur1, $ageJoueur2);
+afficherJoueurLePlusAge($joueur1[1], $joueur2[1]);
 generationSeparation(SEPARATEUR);
-$differenceAge = calculDifferenceAge($ageJoueur1, $ageJoueur2);
+$differenceAge = calculDifferenceAge($joueur1[1], $joueur2[1]);
 echo "La différence d'age est de : " . $differenceAge;
 generationSeparation(SEPARATEUR);
-afficherMajeur($ageJoueur1);
+afficherMajeur($joueur1[1]);
 generationSeparation(SEPARATEUR);
-afficherMajeur($ageJoueur2);
+afficherMajeur($joueur2[1]);
 generationSeparation(SEPARATEUR);
 
 function afficherJoueur($nom, $age, $homme) {
@@ -84,7 +92,16 @@ function afficherMajeur($age) {
         default : echo "????";
         break;
     }
-    
+}
+
+function afficherJoueurV2($tableau) {
+    // $nombreCaseTableau = count($tableau);
+    // for($i = 0; $i < $nombreCaseTableau; $i++) {
+    //     echo $tableau[$i] . "<br />";
+    // }
+    foreach($tableau as $indice => $valeur) {
+        echo $indice . " : " . $valeur . "<br />";
+    }
 }
 
 ?>
