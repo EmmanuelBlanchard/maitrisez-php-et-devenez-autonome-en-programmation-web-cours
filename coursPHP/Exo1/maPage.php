@@ -2,11 +2,11 @@
 define("SEPARATEUR", "-");
 
 $nomJoueur1 = "Matthieu";
-$ageJoueur1 = 30;
+$ageJoueur1 = 20;
 $estUnHommeJoueur1 = true;
 
 $nomJoueur2 = "tata";
-$ageJoueur2 = 25;
+$ageJoueur2 = 18;
 $estUnHommeJoueur2 = false;
 
 generationSeparation(SEPARATEUR);
@@ -19,6 +19,11 @@ afficherJoueurLePlusAge($ageJoueur1, $ageJoueur2);
 generationSeparation(SEPARATEUR);
 $differenceAge = calculDifferenceAge($ageJoueur1, $ageJoueur2);
 echo "La différence d'age est de : " . $differenceAge;
+generationSeparation(SEPARATEUR);
+afficherMajeur($ageJoueur1);
+generationSeparation(SEPARATEUR);
+afficherMajeur($ageJoueur2);
+generationSeparation(SEPARATEUR);
 
 function afficherJoueur($nom, $age, $homme) {
     echo "Nom du joueur : " . $nom;
@@ -55,6 +60,26 @@ function generationSeparation($separateur) {
         echo $separateur;
     }
     echo "<br />";
+}
+
+function afficherMajeur($age) {
+    switch($age) {
+        case 21 :
+        case 20 :
+        case 19 : echo "Il est majeur";
+        break;
+        case 18 : echo "Il est tout juste majeur";
+        break;
+        case 17 : echo "Il est encore mineur";
+        break;
+        case 16 : echo "Il est mineur";
+        break;
+        case 10 : echo "Il est mineur";
+        break;
+        default : echo "????";
+        break;
+    }
+    
 }
 
 ?>
