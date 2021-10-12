@@ -1,4 +1,6 @@
 <?php
+define("SEPARATEUR", "-");
+
 $nomJoueur1 = "Matthieu";
 $ageJoueur1 = 30;
 $estUnHommeJoueur1 = true;
@@ -7,14 +9,14 @@ $nomJoueur2 = "tata";
 $ageJoueur2 = 25;
 $estUnHommeJoueur2 = false;
 
-generationSeparation("-");
+generationSeparation(SEPARATEUR);
 afficherJoueur($nomJoueur1,$ageJoueur1,$estUnHommeJoueur1);
-generationSeparation("+");
+generationSeparation(SEPARATEUR);
 afficherJoueur($nomJoueur2,$ageJoueur2,$estUnHommeJoueur2);
-generationSeparation("/");
+generationSeparation(SEPARATEUR);
 
 afficherJoueurLePlusAge($ageJoueur1, $ageJoueur2);
-generationSeparation("-");
+generationSeparation(SEPARATEUR);
 $differenceAge = calculDifferenceAge($ageJoueur1, $ageJoueur2);
 echo "La différence d'age est de : " . $differenceAge;
 
