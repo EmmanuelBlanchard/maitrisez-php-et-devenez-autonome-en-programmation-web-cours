@@ -13,8 +13,8 @@ $personnage1->afficherMesInformationsModele();
 $personnage2 = new Personnage("Katy","playerF.png",22,Personnage::FEMME,Personnage::FORCE_MIN,Personnage::AGILITE_MAX);
 $personnage2->afficherMesInformationsModele();
 
-$personnage3 = new Personnage("Marc","playerM.png",33,Personnage::HOMME,7,2);
-$personnage3->afficherMesInformationsModele("Marc","playerM.png",33,true,Personnage::FORCE_MED,Personnage::AGILITE_MED);
+$personnage3 = new Personnage("Marc","playerM.png",33,Personnage::HOMME,Personnage::FORCE_MED,Personnage::AGILITE_MED);
+$personnage3->afficherMesInformationsModele();
 
 ?>
 
