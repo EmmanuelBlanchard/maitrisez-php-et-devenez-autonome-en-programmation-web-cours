@@ -11,8 +11,8 @@ class monPDO{
     public static function getPDO(){
         if(is_null(self::$monPDOinstance)){
             try {
-                $connexion = 'mysql:host='.HOST_NAME.';dbname='.DB_NAME;
-                self::$monPDOinstance = new PDO($connexion,USER_NAME,PWD, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+                $connexion = 'mysql:host='.self::HOST_NAME.';dbname='.self::DB_NAME;
+                self::$monPDOinstance = new PDO($connexion,self::USER_NAME,self::PWD, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             } catch(PDOException $e){
                 $message = "erreur de connexion à la DB". $e->getMessage();
                 die($message);
