@@ -16,6 +16,10 @@ class Fruit {
         $this->prix = $this->getPrixFruits($nom);
     }
 
+    public function getNom(){
+        return $this->nom;
+    }
+    
     private function getPrixFruits($nom) {
         if($nom === self::POMME) {
             return 15;
