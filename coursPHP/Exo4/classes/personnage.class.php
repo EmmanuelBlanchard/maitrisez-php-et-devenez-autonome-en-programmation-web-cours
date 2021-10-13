@@ -7,6 +7,17 @@ class Personnage {
     private $force;
     private $agilite;
 
+    const HOMME = true;
+    const FEMME = false;
+
+    const FORCE_MAX = 6;
+    const FORCE_MED = 5;
+    const FORCE_MIN = 4;
+
+    const AGILITE_MAX = 6;
+    const AGILITE_MED = 5;
+    const AGILITE_MIN = 4;
+
     function __construct($nom,$image,$age,$sexe,$force,$agilite) {
         $this->nom = $nom;
         $this->image = $image;
