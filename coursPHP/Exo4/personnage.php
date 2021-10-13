@@ -1,12 +1,21 @@
 <?php 
 
 class Personnage {
-    public $nom = "Luke";
-    public $img = "player.png";
-    public $age = 27;
-    public $sexe = true;
-    public $force = 5;
-    public $agilite = 4;
+    public $nom;
+    public $image;
+    public $age;
+    public $sexe;
+    public $force;
+    public $agilite;
+
+    public function __construct($nom,$image,$age,$sexe,$force,$agilite) {
+        $this->nom = $nom;
+        $this->image = $image;
+        $this->age = $age;
+        $this->sexe = $sexe;
+        $this->force = $force;
+        $this->agilite = $agilite;
+    }
 
     public function afficherMesInformations() {
         echo "<b>Nom : </b>" . $this->nom . "<br/>";
@@ -24,7 +33,7 @@ class Personnage {
 
     public function afficherMesInformationsModele() {
         echo "<div class=\"gauche\">";
-            echo "<img src=\"sources/images/".$this->img."\" alt=\"".$this->img."\" />";
+            echo "<img src=\"sources/images/".$this->image."\" alt=\"".$this->image."\" />";
         echo "</div>";
         echo "<div class=\"gauche\">";
         $this->afficherMesInformations();
@@ -41,27 +50,14 @@ class Personnage {
 <h1> Personnage : </h1>
 
 <?php 
-$personnage1 = new Personnage();
+$personnage1 = new Personnage("Luke","player.png",27,true,5,4);
 $personnage1->afficherMesInformationsModele();
 
-$personnage2 = new Personnage();
-$personnage2->img = "playerF.png";
-$personnage2->nom = "Katy";
-$personnage2->age = 22;
-$personnage2->sexe = false;
-$personnage2->force = 3;
-$personnage2->agilite = 6;
+$personnage2 = new Personnage("Katy","playerF.png",22,false,3,6);
 $personnage2->afficherMesInformationsModele();
 
-$personnage3 = new Personnage();
-$personnage3->img = "playerM.png";
-$personnage3->nom = "Marc";
-$personnage3->age = 33;
-$personnage3->sexe = true;
-$personnage3->force = 7;
-$personnage3->agilite = 2;
-
-$personnage3->afficherMesInformationsModele();
+$personnage3 = new Personnage("Marc","playerM.png",33,true,7,2);
+$personnage3->afficherMesInformationsModele("Marc","playerM.png",33,true,7,2);
 
 ?>
 
