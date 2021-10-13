@@ -4,30 +4,18 @@ class Fruit {
     private $poids;
     private $prix;
 
-    const POMME = "pomme";
-    const CERISE = "cerise";
-    
-    const POMME_IMAGE = "apple.png";
-    const CERISE_IMAGE = "cherry.png";
+    public static $fruits = [];
 
-    public function __construct($nom,$poids) {
+    public function __construct($nom,$poids,$prix) {
         $this->nom = $nom;
         $this->poids = $poids;
-        $this->prix = $this->getPrixFruits($nom);
+        $this->prix = $prix;
     }
 
     public function getNom(){
         return $this->nom;
     }
     
-    private function getPrixFruits($nom) {
-        if($nom === self::POMME) {
-            return 15;
-        } else if($nom === self::CERISE) {
-            return 20;
-        }
-    }
-
     public function __toString() {
         $affichage = $this->getAffichageImage();
         $affichage .= "Nom : " . $this->nom . "<br />";
@@ -37,10 +25,11 @@ class Fruit {
     }
 
     private function getAffichageImage() {
-        if($this->nom === self::POMME) {
-            return "<img src=\"sources/images/".self::POMME_IMAGE."\" alt=\"image pomme\" /> <br/>";
-        } else if($this->nom === self::CERISE) {
-            return "<img src=\"sources/images/".self::CERISE_IMAGE."\" alt=\"image cerise\" /> <br/>"; 
+        if(preg_match("/cerise/",$this->nom)){
+            echo "<img src=\"sources/images/cherry.png\" alt=\"image cerise\" /><br/>";
+        }
+        if(preg_match("/pomme/",$this->nom)){
+            echo "<img src=\"sources/images/apple.png\" alt=\"image pomme\" /><br/>";
         }
     }
 
