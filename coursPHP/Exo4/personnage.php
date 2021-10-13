@@ -8,13 +8,14 @@
 
 <?php 
 $personnage1 = new Personnage("Luke","player.png",27,Personnage::HOMME,Personnage::FORCE_MED,Personnage::AGILITE_MIN);
-$personnage1->afficherMesInformationsModele();
-
 $personnage2 = new Personnage("Katy","playerF.png",22,Personnage::FEMME,Personnage::FORCE_MIN,Personnage::AGILITE_MAX);
-$personnage2->afficherMesInformationsModele();
-
 $personnage3 = new Personnage("Marc","playerM.png",33,Personnage::HOMME,Personnage::FORCE_MED,Personnage::AGILITE_MED);
-$personnage3->afficherMesInformationsModele();
+$personnages = Personnage::getListePersonnage();
+
+foreach($personnages as $personnage) {
+    $personnage->afficherMesInformationsModele();
+    echo "<br/>------------------------<br/>";
+}
 
 ?>
 

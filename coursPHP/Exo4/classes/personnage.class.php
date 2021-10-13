@@ -1,5 +1,7 @@
 <?php
 class Personnage {
+    public static $personnages = [];
+
     private $nom;
     private $image;
     private $age;
@@ -25,6 +27,7 @@ class Personnage {
         $this->sexe = $sexe;
         $this->force = $force;
         $this->agilite = $agilite;
+        self::$personnages[] = $this;
     }
 
     function getNom() {
@@ -86,7 +89,6 @@ class Personnage {
         }
         echo "<b>Force : </b>" . $this->force . "<br/>";
         echo "<b>Agilité : </b>" . $this->agilite . "<br/>";
-        echo "<br/>------------------------<br/>";
     }
 
     public function afficherMesInformationsModele() {
@@ -98,5 +100,10 @@ class Personnage {
         echo "</div>";
         echo "<div class=\"clearBoth\"></div>";
     }
+
+    public static function getListePersonnage(){
+        return self::$personnages;
+    }
+
 }
 ?>
