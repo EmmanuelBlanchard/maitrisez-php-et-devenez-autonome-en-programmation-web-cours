@@ -2,5 +2,6 @@
     <ul>
         <li><a href="index.php">Accueil</a></li>
         <li><a href="personnage.php">Personnage</a></li>
+        <li><a href="exo2.php">Exercice 2</a></li>
     </ul>
 </nav>

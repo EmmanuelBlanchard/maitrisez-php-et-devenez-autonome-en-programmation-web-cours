@@ -54,6 +54,9 @@ h1 {
 .gauche{
     float:left;
 }
+.droite {
+    float:right;
+}
 .clearBoth{
     clear:both;
 }
