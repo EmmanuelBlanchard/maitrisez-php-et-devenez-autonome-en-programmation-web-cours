@@ -19,6 +19,10 @@ class Panier {
         }
     }
 
+    public function getIdentifiant() {
+        return $this->identifiant;
+    }
+
     public function __toString() {
         $affichage = "Voici le contenu du panier " .$this->identifiant ." : <br/>";
         foreach($this->pommes as $pomme) {
