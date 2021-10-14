@@ -30,18 +30,6 @@ class Panier {
         }
     }
 
-    // public function __toString() {
-    //     $affichage = "Voici le contenu du panier " .$this->identifiant ." : <br/>";
-    //     foreach($this->pommes as $pomme) {
-    //         $affichage .= $pomme;
-    //     }
-    //     foreach($this->cerises as $cerise) {
-    //         $affichage .= $cerise;
-    //     }
-    //     $affichage .= "<br/>";
-    //     return $affichage;
-    // }
-
     public function __toString(){
         $affichage = Utile::gererTitreNiveau2('Contenu du panier ' . $this->identifiant ." :");
         $affichage .= '<table class="table">';
@@ -51,27 +39,39 @@ class Panier {
                     $affichage .= '<th scope="col">Nom</th>';
                     $affichage .= '<th scope="col">Poids</th>';
                     $affichage .= '<th scope="col">Prix</th>';
+                    $affichage .= '<th scope="col">Modifier</th>';
+                    $affichage .= '<th scope="col">Supprimer</th>';
                 $affichage .= '</tr>';
             $affichage .= '</thead>';
             $affichage .= '<tbody>';
         foreach($this->pommes as $pomme){
-            $affichage .= '<tr>';
-                $affichage .= '<td>'.$pomme->getAffichageImageSmall().'</td>';
-                $affichage .= '<td>'.$pomme->getNom().'</td>';
-                $affichage .= '<td>'.$pomme->getPoids().'</td>';
-                $affichage .= '<td>'.$pomme->getPrix().'</td>';
-            $affichage .= '</tr>';
+            $affichage .= $this->affichagePersonnaliseFruit($pomme);
         }
         foreach($this->cerises as $cerise){
-            $affichage .= '<tr>';
-                $affichage .= '<td>'.$cerise->getAffichageImageSmall().'</td>';
-                $affichage .= '<td>'.$cerise->getNom().'</td>';
-                $affichage .= '<td>'.$cerise->getPoids().'</td>';
-                $affichage .= '<td>'.$cerise->getPrix().'</td>';
-            $affichage .= '</tr>';
+            $affichage .= $this->affichagePersonnaliseFruit($cerise);
         }  
             $affichage .= '</tbody>';
         $affichage .= '</table>';
+        return $affichage;
+    }
+
+    private function affichagePersonnaliseFruit($fruit){
+        $affichage = '<tr>';
+            $affichage .= '<td>'.$fruit->getAffichageImageSmall().'</td>';
+            $affichage .= '<td>'.$fruit->getNom().'</td>';
+            $affichage .= '<td>'.$fruit->getPoids().'</td>';
+            $affichage .= '<td>'.$fruit->getPrix().'</td>';
+            $affichage .= '<td>';
+                $affichage .= '<form action="#" method="GET">';
+                    $affichage .= '<input class="btn btn-primary" type="submit" value="Modifier" />';
+                $affichage .= '</form>';
+            $affichage .= '</td>';
+            $affichage .= '<td>';
+                $affichage .= '<form action="#" method="GET">';
+                    $affichage .= '<input class="btn btn-primary" type="submit" value="Supprimer" />';
+                $affichage .= '</form>';
+            $affichage .= '</td>';
+        $affichage .= '</tr>';
         return $affichage;
     }
 
