@@ -25,6 +25,10 @@ class Fruit {
         return $affichage;
     }
 
+    public function saveInDB($idPanier){
+        return fruitManager::insertIntoDB($this->nom, $this->poids,$this->prix,$idPanier);
+    }
+
     private function getAffichageImage() {
         if(preg_match("/cerise/",$this->nom)){
             return "<img src=\"sources/images/cherry.png\" alt=\"image cerise\" /><br/>";

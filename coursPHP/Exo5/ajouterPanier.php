@@ -22,16 +22,21 @@
     if(isset($_POST['client']) && !empty($_POST['client'])){
         $panier = new Panier(Panier::generateUniqueId(),$_POST['client']);
         $resultat = $panier->saveInDB();
-        $cpt = 0;
+        $cpt = 1;
+        $nombreFruitInDB = Fruit::generateUniqueId();
         if($resultat){
             $nbPomme = (int)$_POST['nb_pommes'];
             $nbCerise = (int)$_POST['nb_cerise'];
             for($i = 0 ; $i < $nbPomme;$i++){
-                $panier->addFruit(new Fruit("pomme".(Fruit::generateUniqueId()+$cpt),rand(120,160),20));
+                $fruit = new Fruit("pomme".($nombreFruitInDB+$cpt),rand(120,160),20);
+                $fruit->saveInDB($panier->getIdentifiant());
+                $panier->addFruit($fruit);
                 $cpt++;
             }
             for($i = 0 ; $i < $nbCerise;$i++){
-                $panier->addFruit(new Fruit("cerise".(Fruit::generateUniqueId()+$cpt),rand(30,40),20));
+                $fruit = new Fruit("cerise".($nombreFruitInDB+$cpt),rand(120,160),20);
+                $fruit->saveInDB($panier->getIdentifiant());
+                $panier->addFruit($fruit);
                 $cpt++;
             } 
             echo $panier;
@@ -40,17 +45,6 @@
             echo "L'ajout n'a pas fonctionné";
         }
     }
-        // $p = new Panier();
-        // $nbPomme = (int)$_POST['nb_pommes'];
-        // $nbCerise = (int)$_POST['nb_cerise'];
-        // for($i = 0 ; $i < $nbPomme;$i++){
-        //     $p->addFruit(new Fruit(Fruit::POMME,rand(120,160)));
-        // }
-        // for($i = 0 ; $i < $nbCerise;$i++){
-        //     $p->addFruit(new Fruit(Fruit::CERISE,rand(30,40)));
-        // } 
-        // $paniers[] = $p;
-
 ?>
 
 <?php 

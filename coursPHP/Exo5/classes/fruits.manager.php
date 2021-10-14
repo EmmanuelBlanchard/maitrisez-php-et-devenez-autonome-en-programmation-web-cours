@@ -21,5 +21,21 @@ class fruitManager{
         $resultat = $stmt->fetch();
         return $resultat['nombreFruits'];
     }
+
+    public static function insertIntoDB($nom, $poids,$prix,$idPanier){
+        $pdo = monPDO::getPDO();
+        $req = "INSERT INTO fruit VALUES (:nom,:poids,:prix,:idPanier)";
+        $stmt = $pdo->prepare($req);
+        $stmt->bindValue(":nom", $nom, PDO::PARAM_STR);
+        $stmt->bindValue(":poids", $poids, PDO::PARAM_INT);
+        $stmt->bindValue(":prix", $prix, PDO::PARAM_INT);
+        $stmt->bindValue(":idPanier", $idPanier, PDO::PARAM_INT);
+        try{
+            return $stmt->execute();
+        } catch (PDOException $e){
+            echo "Erreur : ". $e->getMessage();
+            return false;
+        }
+    }
 }
 ?>

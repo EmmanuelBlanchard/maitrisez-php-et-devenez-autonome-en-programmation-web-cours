@@ -13,6 +13,10 @@ class Panier {
         $this->nomClient = $nomClient;
     }
 
+    public function getIdentifiant(){
+        return $this->identifiant;
+    }
+
     public function setFruitToPanierFromDB(){
         $fruits = panierManager::getFruitPanier($this->identifiant);
 
@@ -44,7 +48,7 @@ class Panier {
             $this->pommes[] = $fruit;
         }
     }
-    
+
     public function saveInDB(){
         return panierManager::insertIntoDB($this->identifiant, $this->nomClient);
     }
