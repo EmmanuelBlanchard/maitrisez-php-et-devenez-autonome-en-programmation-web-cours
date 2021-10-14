@@ -1,8 +1,26 @@
-<nav>
-    <ul>
-        <li><a href="index.php">Accueil</a></li>
-        <li><a href="afficherFruits.php">Les fruits</a></li>
-        <li><a href="afficherPaniers.php">Les paniers</a></li>
-        <li><a href="ajouterPanier.php">Ajouter un panier</a></li>
-    </ul>
+<nav class="navbar navbar-expand-lg navbar-dark persoBackgroundColorBlueDark">
+    <a class="navbar-brand" href="#">MonSite</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="afficherFruits.php">Gestion des fruits</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Paniers
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="afficherPaniers.php">Gestion</a>
+                    <a class="dropdown-item" href="ajouterPanier.php">Ajouter</a>
+                </div>
+            </li>
+        </ul>
+    </div>
 </nav>
