@@ -62,6 +62,7 @@ class Panier {
             $affichage .= '<td>';
                 if(isset($_GET['idFruit']) && $_GET['idFruit'] === $fruit->getNom()){
                     $affichage .= "<form method='POST' action='#'>";
+                        $affichage .= '<input type="hidden" name="type" id="type" value="modification" />';
                         $affichage .= '<input type="hidden" name="idFruit" id="idFruit" value="'.$fruit->getNom().'" />';
                         $affichage .= '<input type="number" name="poidsFruits" id="poidsFruits" value="'.$fruit->getPoids().'" />';
                 } else {
@@ -85,10 +86,12 @@ class Panier {
                     $affichage .= '<input class="btn btn-primary" type="submit" value="Modifier" />';
                 $affichage .= '</form>';
             }
-              
+
             $affichage .= '</td>';
             $affichage .= '<td>';
-                $affichage .= '<form action="#" method="GET">';
+                $affichage .= '<form action="#" method="POST">';
+                    $affichage .= '<input type="hidden" name="idFruit" id="idFruit" value="'.$fruit->getNom().'" />';
+                    $affichage .= '<input type="hidden" name="type" id="type" value="supprimer" />';
                     $affichage .= '<input class="btn btn-primary" type="submit" value="Supprimer" />';
                 $affichage .= '</form>';
             $affichage .= '</td>';

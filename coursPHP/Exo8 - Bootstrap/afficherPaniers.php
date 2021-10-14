@@ -11,7 +11,7 @@
 <div class="container">
 
 <?php
-    if(isset($_POST['idFruit'])){
+    if(isset($_POST['idFruit']) && $_POST['type'] === "modification"){
         $idFruitToUpdate = $_POST['idFruit'];
         $poidsFruitToUpdate = (int) $_POST['poidsFruits'];
         $prixFruitToUpdate = (int) $_POST['prixFruits'];
@@ -20,6 +20,14 @@
             echo '<div class="alert alert-success mt-2" role="alert">La modification a été effectuée en BD</div>';
         } else {
             echo '<div class="alert alert-danger mt-2" role="alert">La modification n\'a pas été effectuée en BD</div>';
+        }
+    } else if(isset($_POST['idFruit']) && $_POST['type'] === "supprimer"){
+        $idFruitToUpdate = $_POST['idFruit'];
+        $res = fruitManager::deleteFruitFromPanier($idFruitToUpdate);
+        if($res){
+            echo '<div class="alert alert-success mt-2" role="alert">La suppression a été effectuée en BD</div>';
+        } else {
+            echo '<div class="alert alert-danger mt-2" role="alert">La suppression n\'a pas été effectuée en BD</div>';
         }
     }
 
