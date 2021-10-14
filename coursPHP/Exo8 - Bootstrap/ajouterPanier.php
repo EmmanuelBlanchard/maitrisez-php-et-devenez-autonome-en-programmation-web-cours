@@ -1,11 +1,12 @@
 <?php 
     require_once("classes/fruits.class.php");
     require_once("classes/panier.class.php");
+    require_once("classes/formatage.utile.php");
     include("common/header.php");
     include("common/menu.php");
 ?>
 <div class="container">
-<h2> Ajout d'un panier : </h2>
+<?php echo Utile::gererTitreNiveau2("Ajout d'un panier :"); ?>
 
 <?php   
     echo '<form action="#" method ="POST" >';

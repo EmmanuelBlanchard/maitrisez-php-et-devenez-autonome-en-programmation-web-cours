@@ -8,7 +8,7 @@
 ?>
 
 <div class="container">
-<h2 class="persoBackgroundColorBlueLight text-white p-2 mt-2 rounded-lg border border-dark"> Fruits : </h2>
+<?php  echo Utile::gererTitreNiveau2("Fruits :") ?>
 
 <?php
     fruitManager::setFruitsFromDB();

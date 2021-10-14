@@ -1,9 +1,10 @@
 <?php 
     include("common/header.php");
     include("common/menu.php");
+    require_once("classes/formatage.utile.php");
 ?>
 <div class="container">
-    <h1 class="text-center">Bienvenue sur le deuxième site dédié à la POO sur PHP</h1>
+    <?php echo Utile::gererTitreNiveau1('Bienvenue sur le deuxième site dédié à la POO sur PHP'); ?>
 
     <div class="container">
         <div class="row">

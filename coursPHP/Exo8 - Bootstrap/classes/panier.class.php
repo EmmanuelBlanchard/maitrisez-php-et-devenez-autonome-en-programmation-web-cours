@@ -1,4 +1,5 @@
 <?php
+require_once("classes/formatage.utile.php");
 require_once("classes/paniers.manager.php");
 class Panier {
     public static $paniers = [];
@@ -42,7 +43,7 @@ class Panier {
     // }
 
     public function __toString(){
-        $affichage = '<h2 class="persoBackgroundColorBlueLight text-white p-2 mt-2 rounded-lg border border-dark">Contenu du panier ' . $this->identifiant ." : </h2>";
+        $affichage = Utile::gererTitreNiveau2('Contenu du panier ' . $this->identifiant ." :");
         $affichage .= '<table class="table">';
             $affichage .= '<thead>';
                 $affichage .= '<tr>';
