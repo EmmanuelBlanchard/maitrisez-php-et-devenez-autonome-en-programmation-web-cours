@@ -5,7 +5,7 @@ require_once("classes/monPDO.class.php");
 class fruitManager{
     public static function setFruitsFromDB(){
         $pdo = monPDO::getPDO();
-        $stmt = $pdo->prepare("Select f.nom as Nom, f.poids as Poids, f.prix as Prix, p.NomClient as Client from fruit f inner join panier p on f.identifiant = p.identifiant");
+        $stmt = $pdo->prepare("SELECT f.nom AS Nom, f.poids AS Poids, f.prix AS Prix, p.NomClient AS Client FROM fruit f INNER JOIN panier p ON f.identifiant = p.identifiant");
         $stmt->execute();
         $fruits = $stmt->fetchAll();
         foreach ($fruits as $fruit){
