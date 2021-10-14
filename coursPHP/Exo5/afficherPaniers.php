@@ -14,7 +14,7 @@
 
     foreach(Panier::$paniers as $panier){
         $panier->setFruitToPanierFromDB();
-        // echo $panier;
+        echo $panier;
     }
 ?>
 

@@ -26,10 +26,10 @@ class Fruit {
 
     private function getAffichageImage() {
         if(preg_match("/cerise/",$this->nom)){
-            echo "<img src=\"sources/images/cherry.png\" alt=\"image cerise\" /><br/>";
+            return "<img src=\"sources/images/cherry.png\" alt=\"image cerise\" /><br/>";
         }
         if(preg_match("/pomme/",$this->nom)){
-            echo "<img src=\"sources/images/apple.png\" alt=\"image pomme\" /><br/>";
+            return "<img src=\"sources/images/apple.png\" alt=\"image pomme\" /><br/>";
         }
     }
 
