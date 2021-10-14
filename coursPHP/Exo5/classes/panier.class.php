@@ -1,4 +1,5 @@
 <?php
+require_once("classes/paniers.manager.php");
 class Panier {
     public static $paniers = [];
 
@@ -34,6 +35,10 @@ class Panier {
         }
         $affichage .= "<br/>";
         return $affichage;
+    }
+
+    public static function generateUniqueId() {
+        return panierManager::getNombrePanierInDB() + 1;
     }
 }
 ?>

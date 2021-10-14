@@ -21,5 +21,14 @@ class panierManager{
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    public static function getNombrePanierInDB() {
+        $pdo = monPDO::getPDO();
+        $req = "SELECT COUNT(*) AS nombrePanier FROM panier";
+        $stmt = $pdo->prepare($req);
+        $stmt->execute();
+        $resultat = $stmt->fetch();
+        return $resultat['nombrePanier'];
+    }
 }
 ?>
