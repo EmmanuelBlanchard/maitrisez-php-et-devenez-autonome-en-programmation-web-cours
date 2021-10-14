@@ -62,6 +62,7 @@ class Panier {
             $affichage .= '<td>';
                 if(isset($_GET['idFruit']) && $_GET['idFruit'] === $fruit->getNom()){
                     $affichage .= "<form method='POST' action='#'>";
+                        $affichage .= '<input type="hidden" name="idFruit" id="idFruit" value="'.$fruit->getNom().'" />';
                         $affichage .= '<input type="number" name="poidsFruits" id="poidsFruits" value="'.$fruit->getPoids().'" />';
                 } else {
                     $affichage .= $fruit->getPoids();

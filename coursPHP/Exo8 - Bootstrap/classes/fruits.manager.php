@@ -37,5 +37,20 @@ class fruitManager{
             return false;
         }
     }
+
+    public static function updateFruitDB($idFruitToUpdate,$poidsFruitToUpdate,$prixFruitToUpdate){
+        $pdo = monPDO::getPDO();
+        $req = "UPDATE fruit SET Poids=:poids,Prix=:prix WHERE nom = :id";
+        $stmt = $pdo->prepare($req);
+        $stmt->bindValue(":id", $idFruitToUpdate, PDO::PARAM_STR);
+        $stmt->bindValue(":poids", $poidsFruitToUpdate, PDO::PARAM_INT);
+        $stmt->bindValue(":prix", $prixFruitToUpdate, PDO::PARAM_INT);
+        try{
+            return $stmt->execute();
+        } catch (PDOException $e){
+            echo "Erreur : ". $e->getMessage();
+            return false;
+        }
+    }
 }
 ?>
