@@ -17,8 +17,16 @@ class Fruit {
         return $this->nom;
     }
     
-    public function __toString() {
-        $affichage = '<div class="card" style="width: 10rem;">';
+    public function __toString(){
+        $affichage = $this->getAffichageImage();
+        $affichage .= "Nom : " . $this->nom . "<br />";
+        $affichage .= "Poids : " . $this->poids . "<br />";
+        $affichage .= "Prix : " . $this->prix . "<br />";
+        return $affichage;
+    }
+
+    public function afficherListeFruit(){
+        $affichage = '<div class="card text-center">';
             $affichage .= $this->getAffichageImage();
             $affichage .= '<div class="card-body">';
                 $affichage .= '<h5 class="card-title">Nom : ' . $this->nom . '</h5>';
@@ -35,10 +43,10 @@ class Fruit {
 
     private function getAffichageImage() {
         if(preg_match("/cerise/",$this->nom)){
-            return "<img class=\"card-img-top\" style='width:100px' src=\"sources/images/cherry.png\" alt=\"image cerise\" /><br/>";
+            return "<img class=\"card-img-top mx-auto\" style='width:200px' src=\"sources/images/cherry.png\" alt=\"image cerise\" /><br/>";
         }
         if(preg_match("/pomme/",$this->nom)){
-            return "<img class=\"card-img-top\" src=\"sources/images/apple.png\" alt=\"image pomme\" /><br/>";
+            return "<img class=\"card-img-top mx-auto\" style='width:200px' src=\"sources/images/apple.png\" alt=\"image pomme\" /><br/>";
         }
     }
 
