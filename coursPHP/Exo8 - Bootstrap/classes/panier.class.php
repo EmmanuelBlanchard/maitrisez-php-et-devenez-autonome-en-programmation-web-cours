@@ -59,12 +59,32 @@ class Panier {
         $affichage = '<tr>';
             $affichage .= '<td>'.$fruit->getAffichageImageSmall().'</td>';
             $affichage .= '<td>'.$fruit->getNom().'</td>';
-            $affichage .= '<td>'.$fruit->getPoids().'</td>';
-            $affichage .= '<td>'.$fruit->getPrix().'</td>';
             $affichage .= '<td>';
+                if(isset($_GET['idFruit']) && $_GET['idFruit'] === $fruit->getNom()){
+                    $affichage .= "<form method='POST' action='#'>";
+                        $affichage .= '<input type="number" name="poidsFruits" id="poidsFruits" value="'.$fruit->getPoids().'" />';
+                } else {
+                    $affichage .= $fruit->getPoids();
+                }
+            $affichage .='</td>';
+            $affichage .= '<td>';
+                if(isset($_GET['idFruit']) && $_GET['idFruit'] === $fruit->getNom()){
+                        $affichage .= '<input type="number" name="prixFruits" id="prixFruits" value="'.$fruit->getPrix().'" />';
+                } else {
+                    $affichage .= $fruit->getPrix();
+                }
+            $affichage .='</td>';
+            $affichage .= '<td>';
+            if(isset($_GET['idFruit']) && $_GET['idFruit'] === $fruit->getNom()){
+                    $affichage .= '<input class="btn btn-success" type="submit" value="Valider" />';
+                $affichage .= "</form>";
+            } else {
                 $affichage .= '<form action="#" method="GET">';
+                    $affichage .= '<input type="hidden" name="idFruit" id="idFruit" value="'.$fruit->getNom().'" />';
                     $affichage .= '<input class="btn btn-primary" type="submit" value="Modifier" />';
                 $affichage .= '</form>';
+            }
+              
             $affichage .= '</td>';
             $affichage .= '<td>';
                 $affichage .= '<form action="#" method="GET">';
