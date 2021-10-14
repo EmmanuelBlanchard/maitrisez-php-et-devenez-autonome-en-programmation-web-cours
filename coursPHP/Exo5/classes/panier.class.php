@@ -37,8 +37,12 @@ class Panier {
         return $affichage;
     }
 
+    public function saveInDB(){
+        return panierManager::insertIntoDB($this->identifiant, $this->nomClient);
+    }
+    
     public static function generateUniqueId() {
-        return panierManager::getNombrePanierInDB() + 1;
+        return panierManager::getNombrePaniersInDB() + 1;
     }
 }
 ?>

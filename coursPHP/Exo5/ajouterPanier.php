@@ -21,7 +21,12 @@
 
     if(isset($_POST['client']) && !empty($_POST['client'])){
         $panier = new Panier(Panier::generateUniqueId(),$_POST['client']);
-        echo $panier;
+        $resultat = $panier->saveInDB();
+        if($resultat){
+            echo "OK";
+        } else {
+            echo "L'ajout n'a pas fonctionné";
+        }
     }
         // $p = new Panier();
         // $nbPomme = (int)$_POST['nb_pommes'];

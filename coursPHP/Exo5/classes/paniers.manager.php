@@ -22,13 +22,27 @@ class panierManager{
         return $stmt->fetchAll();
     }
 
-    public static function getNombrePanierInDB() {
+    public static function getNombrePaniersInDB() {
         $pdo = monPDO::getPDO();
-        $req = "SELECT COUNT(*) AS nombrePanier FROM panier";
+        $req = "SELECT COUNT(*) AS nombrePaniers FROM panier";
         $stmt = $pdo->prepare($req);
         $stmt->execute();
         $resultat = $stmt->fetch();
-        return $resultat['nombrePanier'];
+        return $resultat['nombrePaniers'];
+    }
+
+    public static function insertIntoDB($identifiant,$nomClient){
+        $pdo = monPDO::getPDO();
+        $req = "INSERT INTO panier (identifiant, NomClient) VALUES (:identifiant,:nomClient)";
+        $stmt = $pdo->prepare($req);
+        $stmt->bindValue(":identifiant", $identifiant, PDO::PARAM_INT);
+        $stmt->bindValue(":nomClient", $nomClient, PDO::PARAM_STR);
+        try{
+            return $stmt->execute();
+        } catch (PDOException $e){
+            echo "Erreur : ". $e->getMessage();
+            return false;
+        }
     }
 }
 ?>
