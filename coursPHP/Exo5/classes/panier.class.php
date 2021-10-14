@@ -37,10 +37,18 @@ class Panier {
         return $affichage;
     }
 
+    public function addFruit($fruit){
+        if(preg_match("/cerise/",$fruit->getNom())){
+            $this->cerises[] = $fruit;
+        } else if(preg_match("/pomme/",$fruit->getNom())){
+            $this->pommes[] = $fruit;
+        }
+    }
+    
     public function saveInDB(){
         return panierManager::insertIntoDB($this->identifiant, $this->nomClient);
     }
-    
+
     public static function generateUniqueId() {
         return panierManager::getNombrePaniersInDB() + 1;
     }

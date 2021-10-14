@@ -12,5 +12,14 @@ class fruitManager{
             Fruit::$fruits[] = new Fruit($fruit['Nom'],$fruit['Poids'],$fruit['Prix']);
         }
     }
+
+    public static function getNombreFruitsInDB(){
+        $pdo = monPDO::getPDO();
+        $req = "SELECT count(*) AS nombreFruits FROM fruit";
+        $stmt = $pdo->prepare($req);
+        $stmt->execute();
+        $resultat = $stmt->fetch();
+        return $resultat['nombreFruits'];
+    }
 }
 ?>

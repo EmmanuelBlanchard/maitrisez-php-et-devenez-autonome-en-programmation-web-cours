@@ -22,7 +22,19 @@
     if(isset($_POST['client']) && !empty($_POST['client'])){
         $panier = new Panier(Panier::generateUniqueId(),$_POST['client']);
         $resultat = $panier->saveInDB();
+        $cpt = 0;
         if($resultat){
+            $nbPomme = (int)$_POST['nb_pommes'];
+            $nbCerise = (int)$_POST['nb_cerise'];
+            for($i = 0 ; $i < $nbPomme;$i++){
+                $panier->addFruit(new Fruit("pomme".(Fruit::generateUniqueId()+$cpt),rand(120,160),20));
+                $cpt++;
+            }
+            for($i = 0 ; $i < $nbCerise;$i++){
+                $panier->addFruit(new Fruit("cerise".(Fruit::generateUniqueId()+$cpt),rand(30,40),20));
+                $cpt++;
+            } 
+            echo $panier;
             echo "OK";
         } else {
             echo "L'ajout n'a pas fonctionné";

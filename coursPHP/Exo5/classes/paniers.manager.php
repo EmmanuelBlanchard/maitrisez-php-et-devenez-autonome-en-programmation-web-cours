@@ -24,7 +24,7 @@ class panierManager{
 
     public static function getNombrePaniersInDB() {
         $pdo = monPDO::getPDO();
-        $req = "SELECT COUNT(*) AS nombrePaniers FROM panier";
+        $req = "SELECT count(*) AS nombrePaniers FROM panier";
         $stmt = $pdo->prepare($req);
         $stmt->execute();
         $resultat = $stmt->fetch();

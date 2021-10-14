@@ -1,4 +1,5 @@
 <?php
+require_once("classes/fruits.manager.php");
 class Fruit {
     private $nom;
     private $poids;
@@ -31,6 +32,10 @@ class Fruit {
         if(preg_match("/pomme/",$this->nom)){
             return "<img src=\"sources/images/apple.png\" alt=\"image pomme\" /><br/>";
         }
+    }
+
+    public static function generateUniqueId(){
+        return fruitManager::getNombreFruitsInDB() + 1;
     }
 
 }
