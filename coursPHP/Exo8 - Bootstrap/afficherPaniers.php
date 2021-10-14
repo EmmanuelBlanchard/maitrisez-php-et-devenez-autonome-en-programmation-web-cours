@@ -9,8 +9,6 @@
 
 <div class="container">
 
-<h2> Fruits : </h2>
-
 <?php
     panierManager::setPaniersFromDB();
 

@@ -29,15 +29,48 @@ class Panier {
         }
     }
 
-    public function __toString() {
-        $affichage = "Voici le contenu du panier " .$this->identifiant ." : <br/>";
-        foreach($this->pommes as $pomme) {
-            $affichage .= $pomme;
+    // public function __toString() {
+    //     $affichage = "Voici le contenu du panier " .$this->identifiant ." : <br/>";
+    //     foreach($this->pommes as $pomme) {
+    //         $affichage .= $pomme;
+    //     }
+    //     foreach($this->cerises as $cerise) {
+    //         $affichage .= $cerise;
+    //     }
+    //     $affichage .= "<br/>";
+    //     return $affichage;
+    // }
+
+    public function __toString(){
+        $affichage = '<h2 class="persoBackgroundColorBlueLight text-white p-2 mt-2 rounded-lg border border-dark">Contenu du panier ' . $this->identifiant ." : </h2>";
+        $affichage .= '<table class="table">';
+            $affichage .= '<thead>';
+                $affichage .= '<tr>';
+                    $affichage .= '<th scope="col">Image</th>';
+                    $affichage .= '<th scope="col">Nom</th>';
+                    $affichage .= '<th scope="col">Poids</th>';
+                    $affichage .= '<th scope="col">Prix</th>';
+                $affichage .= '</tr>';
+            $affichage .= '</thead>';
+            $affichage .= '<tbody>';
+        foreach($this->pommes as $pomme){
+            $affichage .= '<tr>';
+                $affichage .= '<td>'.$pomme->getAffichageImageSmall().'</td>';
+                $affichage .= '<td>'.$pomme->getNom().'</td>';
+                $affichage .= '<td>'.$pomme->getPoids().'</td>';
+                $affichage .= '<td>'.$pomme->getPrix().'</td>';
+            $affichage .= '</tr>';
         }
-        foreach($this->cerises as $cerise) {
-            $affichage .= $cerise;
-        }
-        $affichage .= "<br/>";
+        foreach($this->cerises as $cerise){
+            $affichage .= '<tr>';
+                $affichage .= '<td>'.$cerise->getAffichageImageSmall().'</td>';
+                $affichage .= '<td>'.$cerise->getNom().'</td>';
+                $affichage .= '<td>'.$cerise->getPoids().'</td>';
+                $affichage .= '<td>'.$cerise->getPrix().'</td>';
+            $affichage .= '</tr>';
+        }  
+            $affichage .= '</tbody>';
+        $affichage .= '</table>';
         return $affichage;
     }
 

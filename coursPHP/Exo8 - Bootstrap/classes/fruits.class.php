@@ -16,6 +16,12 @@ class Fruit {
     public function getNom(){
         return $this->nom;
     }
+    public function getPoids(){
+        return $this->poids;
+    }
+    public function getPrix(){
+        return $this->prix;
+    }
     
     public function __toString(){
         $affichage = $this->getAffichageImage();
@@ -43,10 +49,19 @@ class Fruit {
 
     private function getAffichageImage() {
         if(preg_match("/cerise/",$this->nom)){
-            return "<img class=\"card-img-top mx-auto\" style='width:200px' src=\"sources/images/cherry.png\" alt=\"image cerise\" /><br/>";
+            return "<img class=\"card-img-top mx-auto\" style=\"width:200px\" src=\"sources/images/cherry.png\" alt=\"image cerise\" /><br/>";
         }
         if(preg_match("/pomme/",$this->nom)){
-            return "<img class=\"card-img-top mx-auto\" style='width:200px' src=\"sources/images/apple.png\" alt=\"image pomme\" /><br/>";
+            return "<img class=\"card-img-top mx-auto\" style=\"width:200px\" src=\"sources/images/apple.png\" alt=\"image pomme\" /><br/>";
+        }
+    }
+
+    public function getAffichageImageSmall(){
+        if(preg_match("/cerise/",$this->nom)){
+            return "<img class=\"card-img-top mx-auto\" style=\"width:50px\" src=\"sources/images/cherry.png\" alt=\"image cerise\" /><br/>";
+        }
+        if(preg_match("/pomme/",$this->nom)){
+            return "<img class=\"card-img-top mx-auto\" style=\"width:50px\" src=\"sources/images/apple.png\" alt=\"image pomme\" /><br/>";
         }
     }
 
