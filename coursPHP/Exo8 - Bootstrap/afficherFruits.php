@@ -13,10 +13,13 @@
 
 <?php
     fruitManager::setFruitsFromDB();
-
+    echo '<div class="row">';
     foreach(Fruit::$fruits as $fruit){
-        echo $fruit;
+        echo '<div class="col-2 col-sm p-2">';
+            echo $fruit;
+        echo '</div>'; 
     }
+    echo '</div>';
 ?>
 </div>
 <?php 
