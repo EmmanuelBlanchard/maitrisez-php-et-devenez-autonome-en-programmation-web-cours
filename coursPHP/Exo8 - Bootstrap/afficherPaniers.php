@@ -23,8 +23,8 @@
         }
     } else if(isset($_POST['idFruit']) && $_POST['type'] === "supprimer"){
         $idFruitToUpdate = $_POST['idFruit'];
-        $res = fruitManager::deleteFruitFromPanier($idFruitToUpdate);
-        if($res){
+        $resultat = fruitManager::deleteFruitFromPanier($idFruitToUpdate);
+        if($resultat){
             echo '<div class="alert alert-success mt-2" role="alert">La suppression a été effectuée en BD</div>';
         } else {
             echo '<div class="alert alert-danger mt-2" role="alert">La suppression n\'a pas été effectuée en BD</div>';

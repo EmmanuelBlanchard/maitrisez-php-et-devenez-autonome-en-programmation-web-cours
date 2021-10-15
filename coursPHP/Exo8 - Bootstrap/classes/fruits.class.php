@@ -22,7 +22,7 @@ class Fruit {
     public function getPrix(){
         return $this->prix;
     }
-    
+
     public function __toString(){
         $affichage = $this->getAffichageImage();
         $affichage .= "Nom : " . $this->nom . "<br />";
@@ -37,7 +37,24 @@ class Fruit {
             $affichage .= '<div class="card-body">';
                 $affichage .= '<h5 class="card-title">Nom : ' . $this->nom . '</h5>';
                 $affichage .= '<p class="card-text">Poids : ' . $this->poids . '<br />';
-                $affichage .= "Prix : " . $this->prix . "</p>";
+                $affichage .= "Prix : " . $this->prix . "</br />";
+                $affichage .= "Panier : ";
+                $paniers = panierManager::getPaniers();
+                $panierDuFruit = fruitManager::getPanierFromFruit($this->nom);
+                $affichage .= "<form action='#' method='POST'>";
+                    $affichage .= '<input type="hidden" name="idFruit" id="idFruit" value="'.$this->nom.'" />';
+                    $affichage .= '<select name="idPanier" id="idPanier" class="form-control form-control-sm" onChange="submit()">';
+                        $affichage .= '<option value=""></option>';
+                        foreach($paniers as $panier){                           
+                            if($panierDuFruit === $panier['identifiant']){
+                                $affichage .= '<option value="'.$panier['identifiant'].'" selected>'.$panier['NomClient'].'</option>';
+                            } else {
+                                $affichage .= '<option value="'.$panier['identifiant'].'">'.$panier['NomClient'].'</option>';
+                            }
+                        }
+                    $affichage .= '</select>';
+                $affichage .= "</form>";
+                $affichage .= "</p>";
             $affichage .= "</div>";
         $affichage .= "</div>";
         return $affichage;

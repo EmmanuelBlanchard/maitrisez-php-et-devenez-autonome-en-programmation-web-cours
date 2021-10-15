@@ -11,6 +11,18 @@
 <?php  echo Utile::gererTitreNiveau2("Fruits :") ?>
 
 <?php
+
+    if(isset($_POST['idPanier'])){
+        $idFruit = $_POST['idFruit'];
+        $idPanier = (int) $_POST['idPanier'];
+        $resultat = fruitManager::updatePanierForFruitDB($idFruit,$idPanier);
+        if($resultat){
+            echo '<div class="alert alert-success mt-2" role="alert">La modification a été effectuée en BD</div>';
+        } else {
+            echo '<div class="alert alert-danger mt-2" role="alert">La modification n\'a pas été effectuée en BD</div>';
+        }
+    }
+    
     fruitManager::setFruitsFromDB();
     echo '<div class="row mx-auto">';
     foreach(Fruit::$fruits as $fruit){

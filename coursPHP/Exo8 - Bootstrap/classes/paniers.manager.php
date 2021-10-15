@@ -15,7 +15,7 @@ class panierManager{
 
     public static function getFruitPanier($identifiant){
         $pdo = monPDO::getPDO();
-        $req = "SELECT f.nom AS fruit, f.poids AS poids, f.prix AS prix FROM panier p INNER JOIN fruit f ON f.identifiant = p.identifiant WHERE p.identifiant = :id";
+        $req = "SELECT f.Nom AS fruit, f.Poids AS poids, f.Prix AS prix FROM panier p INNER JOIN fruit f ON f.identifiant = p.identifiant WHERE p.identifiant = :id";
         $stmt = $pdo->prepare($req);
         $stmt->bindValue(":id", $identifiant, PDO::PARAM_INT);
         $stmt->execute();
@@ -43,6 +43,14 @@ class panierManager{
             echo "Erreur : ". $e->getMessage();
             return false;
         }
+    }
+
+    public static function getPaniers(){
+        $pdo = monPDO::getPDO();
+        $req = "SELECT identifiant, NomClient FROM panier";
+        $stmt = $pdo->prepare($req);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 }
 ?>

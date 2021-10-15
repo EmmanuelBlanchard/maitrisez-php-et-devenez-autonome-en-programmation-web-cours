@@ -86,7 +86,7 @@ class Panier {
                     $affichage .= '<input class="btn btn-primary" type="submit" value="Modifier" />';
                 $affichage .= '</form>';
             }
-
+              
             $affichage .= '</td>';
             $affichage .= '<td>';
                 $affichage .= '<form action="#" method="POST">';
