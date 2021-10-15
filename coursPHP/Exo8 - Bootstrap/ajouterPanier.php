@@ -10,15 +10,22 @@
 
 <?php
     echo '<form action="#" method ="POST" >';
-        echo '<fieldset><legend>Panier à créer :</legend>';
-        echo '<label for="client">Nom du client : </label>';
-        echo '<input type="text" name="client" id="client" required/>';
-        echo '<label for="nombrePommes">Nombres de pommes : </label>';
-        echo '<input type="number" name="nombrePommes" id="nombrePommes" required/>';
-        echo '<label for="nombreCerises">Nombres de cerises : </label>';
-        echo '<input type="number" name="nombreCerises" id="nombreCerises" required/>';
-        echo '<input type="submit" value="Créer le panier" />';
-    echo "</fieldset></form>";
+        echo '<div class="row">';
+            echo '<div class="col">';
+                echo '<label for="client">Nom du client : </label>';
+                echo '<input class="form-control" type="text" name="client" id="client" required/>';
+            echo '</div>';
+            echo '<div class="col">';
+                echo '<label for="nombrePommes">Nombres de pommes : </label>';
+                echo '<input class="form-control" type="number" name="nombrePommes" id="nombrePommes" required/>';
+            echo '</div>';
+            echo '<div class="col">';
+                echo '<label for="nombreCerises">Nombres de cerises : </label>';
+                echo '<input class="form-control" type="number" name="nombreCerises" id="nombreCerises" required/>';
+            echo '</div>';
+            echo '<input class="btn btn-primary" type="submit" value="Créer le panier" />';
+        echo '</div>';
+    echo "</form>";
 
     if(isset($_POST['client']) && !empty($_POST['client'])){
         $panier = new Panier(Panier::generateUniqueId(),$_POST['client']);
